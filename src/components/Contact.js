@@ -54,7 +54,7 @@ const Contact = () => {
 
     // const onContactSubmit = async (e) => {
     //     e.preventDefault();
-    
+
     //     const repsonse = await fetch(`http://localhost:8080/api/contact`, {
     //         method: 'POST',
     //         headers: {
@@ -62,7 +62,7 @@ const Contact = () => {
     //         },
     //         // body: JSON.stringify({ ...prevData }),
     //     })
-    
+
     //     if (repsonse.ok) {
     //         console.log(`submission successful`);
     //         setFormData({
@@ -86,6 +86,8 @@ const Contact = () => {
                     contactStatus: "",
                     message: ""
                 });
+                // this is a hackfix because i don't know how react state management works. So just reload the freatking page. :)
+                window.location.reload(false);
             })
             .catch((error) => {
                 console.error("Submission failed:", error)
@@ -99,7 +101,7 @@ const Contact = () => {
                 Contact Us
             </button>
 
-            <form action="" method="POST" class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" onSubmit={onContactSubmit}>
+            <form action="" method="POST" class="modal fade" id="contactModal" aria-labelledby="exampleModalLabel" aria-hidden="true" onSubmit={onContactSubmit}>
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -108,15 +110,15 @@ const Contact = () => {
                         </div>
                         <div class="modal-body">
                             <div className="mb-3 form-outline mb-4">
-                                <label for="name" className="form-label contact-form">Name</label>
+                                <label htmlFor="name" className="form-label contact-form">Name</label>
                                 <input type="text input-lg" name="name" className="form-control" placeholder="Name" onChange={onChangeHandler} />
                             </div>
                             <div className="mb-3 form-outline mb-4">
-                                <label for="email" className="form-label contact-form">Email</label>
+                                <label htmlFor="email" className="form-label contact-form">Email</label>
                                 <input type="email" name="email" className="form-control" placeholder="email" onChange={onChangeHandler} />
                             </div>
                             <div className="mb-3 form-outline mb-4">
-                                <label for="status" className="form-label contact-form">Category</label>
+                                <label htmlFor="status" className="form-label contact-form">Category</label>
                                 <select class="form-select" name="contactStatus" aria-label="select status" onChange={onChangeHandler}>
                                     <option value="0">QUESTIONS</option>
                                     <option value="1">TECHNICAL</option>
@@ -125,7 +127,7 @@ const Contact = () => {
                                 </select>
                             </div>
                             <div className="mb-3 form-outline mb-4">
-                                <label for="textarea" className="form-label">Message</label>
+                                <label htmlFor="textarea" className="form-label">Message</label>
                                 <textarea className="form-control" name="message" rows={4} onChange={onChangeHandler}></textarea>
                             </div>
                         </div>

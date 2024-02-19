@@ -27,31 +27,31 @@ const Register = () => {
             password: "",
             verifyPassword: "",
         });
-    },[])
+    }, [])
 
     const onChangeHandler = (event) => {
         const { name, value } = event.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value}));
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
     const onRegister = (e) => {
         e.preventDefault();
         request("POST", "/api/register", formData)
-        .then((response) => {
-            setAuthToken(response.data.token);
-            setFormData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                username: "",
-                password: "",
-                verifyPassword: "",
+            .then((response) => {
+                setAuthToken(response.data.token);
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    username: "",
+                    password: "",
+                    verifyPassword: "",
+                });
+                navigate('/api/parentLogin');
+            })
+            .catch((error) => {
+                console.error("Registration failed:", error);
             });
-            navigate('/api/parentLogin');
-        })
-        .catch((error) => {
-            console.error("Registration failed:", error);
-        });
     };
 
     return (
@@ -113,5 +113,5 @@ const Register = () => {
     )
 
 }
-    
+
 export default Register;
