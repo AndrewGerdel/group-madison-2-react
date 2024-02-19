@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/login.css';
 import { request, setAuthToken } from '../axios_helper';
 import { Link, useNavigate } from 'react-router-dom';
+import Contact from './Contact';
 
 const KidLogin = () => {
     const navigate = useNavigate();
@@ -55,11 +56,14 @@ const KidLogin = () => {
                     </div>
                     <div className='row justify-content-center d-grid gap-2 col-6 mx-auto'>
                         <Link to='/api/kid-dashboard'>
-                            <button className='btn btn-primary register-btn' type='submit'>Sign In</button>
+                            <button className='btn btn-primary register-btn' type='submit button'>Sign In</button>
                         </Link>
                     </div>
                 </form>
             </div>
+            <footer>
+                <Contact />
+            </footer>
         </div>
     )
 }

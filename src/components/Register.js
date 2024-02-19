@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { request, setAuthToken } from '../axios_helper';
 import { Button } from 'bootstrap';
 import '../styles/Register.css';
+import Contact from './Contact';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -100,11 +101,14 @@ const Register = () => {
                         <label className='form-label' htmlFor='verifyPassword'>Verify Password</label>
                     </div>
                     <div className='row justify-content-center d-grid gap-2 col-6 mx-auto'>
-                        <button className='btn btn-primary register-btn' type='submit'>Create Account</button>
+                        <button className='btn btn-primary register-btn' type='submit button'>Create Account</button>
                         {/* <a class="btn btn-primary register-btn" href="ParentLogin" type="submit" role="submit" >Create Account</a> */}
                     </div>
                 </form>
             </div>
+            <footer>
+                <Contact />
+            </footer>
         </div>
     )
 
